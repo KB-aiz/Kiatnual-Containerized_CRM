@@ -1,0 +1,14 @@
+version: '3'
+services:
+  crm_app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_URL=mongodb://mongo:27032/CRMdb
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "3015:27032"
